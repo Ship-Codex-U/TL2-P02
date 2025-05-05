@@ -1,39 +1,17 @@
-# Practica 01
+# Practica 02
 
-Crea un analizador léxico que valide varias cadenas dadas por el usuario.
-El programa debe identificar los siguientes Token y asignar su correspondiente categoría
-
-- 0 --- Tipo de dato
-- 1 --- Identificador
-- 2 --- constante
-- 3 ---   ;
-- 4 ---   ,
-- 5 ---   (
-- 6 ---   )
-- 7 ---   {
-- 8 ---   }
-- 9 ---   =
-- 10 ---  if
-- 11 ---  while
-- 12 ---  return
-- 13 ---  else
-- 14 ---  for
-- 15 ---  opAdición
-- 16 ---  opMultiplicacion
-- 17 ---  opLogico
-- 18 ---  opRelacional
-- 19 ---  $
+Realizar un analizador sintáctico que reconozca sentencias de asignación u operaciones simples,  y valide su estructura con una gramática como la siguiente (ejemplo):
+<program>  -> <assignment> | <assignment> <program>
+<assignment> -> <identifier> = <expression> ;
+<identifier>   -> [a-zA-Z][a-zA-Z0-9_]*
+<expression> -> <term> | <term> + <expression> | <term>
+<expression>
+<term>       -> <factor> | <factor> * <term> | <factor> / <term>
+<factor>     -> <identifier> | <number> | ( <expression> )
+<number>     -> [0-9]+
 
 
-Siendo:
-- opAdision: + -
-- opMultiplicacion: * / << >>
-- opLogico: &&  ||
-- opelacional: < > >= <= == !=
-- constante: cualquier numero #, y pi
-- tipo de dato: int float char void string 
-
-recuerda mostrar al final la cantidad de tokens encontrados de cada categoría o si encontró algún error.
+Pueden usar arboles sintácticos, tablas de derivación y/o autómatas. Se pueden apoyar con herramientas y librerias como yacc, o bison
 
 
 ## Descarga he instalación/configuración del proyecto
